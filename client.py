@@ -6,22 +6,18 @@ from console import *
 import json
 import click
 
-console.print(Panel("""[bold red]
- 
- ______   ______     ______     __    __    
-/\__  _\ /\  ___\   /\  == \   /\ "-./  \   
-\/_/\ \/ \ \  __\   \ \  __<   \ \ \-./\ \  
-   \ \_\  \ \_____\  \ \_\ \_\  \ \_\ \ \_\ 
-    \/_/   \/_____/   \/_/ /_/   \/_/  \/_/ 
-                                            
- ______     __  __     ______     ______    
-/\  ___\   /\ \_\ \   /\  __ \   /\__  _\   
-\ \ \____  \ \  __ \  \ \  __ \  \/_/\ \/   
- \ \_____\  \ \_\ \_\  \ \_\ \_\    \ \_\   
-  \/_____/   \/_/\/_/   \/_/\/_/     \/_/   
-                                            
-                                                                                                         
+console.print(Panel(r"""[bold red]
+   ____ ____ __       
+  / __// __// /       
+ _\ \ _\ \ / /__      
+/___//___//____/      
+  _____ __         __ 
+ / ___// /  ___ _ / /_
+/ /__ / _ \/ _ `// __/
+\___//_//_/\_,_/ \__/ 
+                      
 """, subtitle='Developed by joaoluizneto', subtitle_align='right', title='Welcome to', title_align='left', width=50), justify='center')
+
 
 class Client:
     def __init__(self, serverIP='localhost', user='joao', serverPort=12000, cert=None):
