@@ -1,15 +1,4 @@
 # SSL Chat
 
-```
-   ____ ____ __       
-  / __// __// /       
- _\ \ _\ \ / /__      
-/___//___//____/      
-  _____ __         __ 
- / ___// /  ___ _ / /_
-/ /__ / _ \/ _ `// __/
-\___//_//_/\_,_/ \__/ 
-                                                   
-```
-
 SSL over TCP over IP chat developed with Python Sockets.
+![image](https://user-images.githubusercontent.com/41850008/200156869-9e530a9a-9719-4e81-9333-20ee080918c2.png)
