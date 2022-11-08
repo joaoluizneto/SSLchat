@@ -80,16 +80,18 @@ def app():
     """Chat Client."""
 
 @app.command(name="run")
-@click.option("--user", default='joao', help="Chat User")
+@click.option("--user", help="Chat User")
 @click.option("--certBundle", default='cert.pem', help="Certificate Bundle")
 @click.option("--serverIP", default='localhost', help="Server IP")
 @click.option("--serverPort", default=12000, help="Server Port")
 def main(user, certbundle, serverip, serverport):
     """Run Client."""
+    if not user:
+        user = Prompt.ask("Username")
     cli = Client(serverIP=serverip, user=user, serverPort=serverport, cert=certbundle)
     while True:
         content = input()
-        destination = Prompt.ask("Destination", choices=["Paul", "Jessica", "Duncan"], default="All")
+        destination = Prompt.ask("Destination", default="All")
 
         cli.send(content, destination)
 if __name__=='__main__':
