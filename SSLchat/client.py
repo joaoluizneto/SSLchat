@@ -81,7 +81,7 @@ def app():
 
 @app.command(name="run")
 @click.option("--user", help="Chat User")
-@click.option("--certBundle", default='cert.pem', help="Certificate Bundle")
+@click.option("--certBundle", help="Certificate Bundle")
 @click.option("--serverIP", default='localhost', help="Server IP")
 @click.option("--serverPort", default=12000, help="Server Port")
 def main(user, certbundle, serverip, serverport):

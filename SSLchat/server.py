@@ -72,13 +72,13 @@ class Server:
 
     def foward(self, message):
         if message['destination'] in [self.clientDict[addr]["user"] for addr in self.clientDict]:
-            conn = [self.clientDict[addr]['conn'] for addr in self.clientDict][0]
+            conn = [self.clientDict[addr]['conn'] for addr in self.clientDict if self.clientDict[addr]['user']==message['destination']][0]
             conn.send(json.dumps(message).encode('utf-8'))
-            print("SPECIFIC")
+            conn = [self.clientDict[addr]['conn'] for addr in self.clientDict if self.clientDict[addr]['user']==message['user']][0]
+            conn.send(json.dumps(message).encode('utf-8'))
         else:
             for addr in self.clientDict:
                 self.clientDict[addr]["conn"].send(json.dumps(message).encode('utf-8'))
-                print("NOT SPECIFIC")
 
 
 @click.group()
@@ -87,8 +87,8 @@ def app():
 
 @app.command(name="run")
 @click.option("--numCli", default=5, help="Limit number of clients")
-@click.option("--key", default='key.pem', help="Private Key")
-@click.option("--cert", default='cert.pem', help="Self Signed Certificate")
+@click.option("--key", help="Private Key")
+@click.option("--cert", help="Self Signed Certificate")
 @click.option("--serverIP", default='localhost', help="Server IP")
 @click.option("--serverPort", default=12000, help="Server Port")
 def main(numcli, key, cert, serverip, serverport):
